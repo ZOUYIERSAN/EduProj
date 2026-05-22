@@ -1,0 +1,10 @@
+[project]
+name = "ielts-toefl-learning-planner"
+version = "0.1.0"
+description = "Adaptive unlock-aware mastery-guided planner for IELTS/TOEFL study plans."
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
