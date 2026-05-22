@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  # Relational store for structured business data:
+  # users, goals, plans, mock exam records, etc.
+  postgres:
+    image: postgres:16
+    container_name: intelligent-prep-postgres
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+      POSTGRES_DB: prep_garden
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # Graph store for TOEFL skill dependency graph and mastery probabilities.
+  neo4j:
+    image: neo4j:5
+    container_name: intelligent-prep-neo4j
+    environment:
+      NEO4J_AUTH: neo4j/password
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - neo4j_data:/data
+
+  # Cache + lightweight message queue:
+  # - cache hot keys
+  # - bridge async tasks between gateway-rust and ai-engine-python
+  redis:
+    image: redis:7
+    container_name: intelligent-prep-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  postgres_data:
+  neo4j_data:
+  redis_data:

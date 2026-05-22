@@ -1,0 +1,11 @@
+# Architecture scaffold only (pin versions later during implementation).
+#
+# Planned dependencies:
+# fastapi
+# uvicorn
+# pydantic
+# ortools
+# transformers
+# torch
+# neo4j
+# redis

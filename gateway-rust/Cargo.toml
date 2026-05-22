@@ -1,0 +1,14 @@
+[package]
+name = "gateway-rust"
+version = "0.1.0"
+edition = "2021"
+
+# NOTE:
+# This crate is currently architecture-only.
+# Dependencies will be added when actual implementation starts:
+# - axum/actix for HTTP + WebSocket
+# - sqlx/diesel for PostgreSQL
+# - redis-rs for caching and message bridge
+# - jsonwebtoken for JWT auth
+
+[dependencies]

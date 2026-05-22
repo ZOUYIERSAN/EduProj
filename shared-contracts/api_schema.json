@@ -1,0 +1,50 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Intelligent Prep Garden Contracts (Scaffold)",
+    "version": "0.1.0",
+    "description": "Architecture-phase API skeleton. Endpoints are placeholders only."
+  },
+  "servers": [
+    {
+      "url": "http://gateway-rust:8080",
+      "description": "Public-facing gateway service"
+    },
+    {
+      "url": "http://ai-engine-python:8000",
+      "description": "Internal AI service (not public)"
+    }
+  ],
+  "paths": {
+    "/v1/auth/login": {
+      "post": {
+        "summary": "Placeholder login endpoint",
+        "description": "Planned for JWT authentication flow."
+      }
+    },
+    "/v1/goals": {
+      "post": {
+        "summary": "Placeholder goal submission endpoint",
+        "description": "Planned for target score and exam profile persistence."
+      }
+    },
+    "/internal/planner/generate": {
+      "post": {
+        "summary": "Placeholder internal planning endpoint",
+        "description": "gateway-rust -> ai-engine-python plan generation request."
+      }
+    },
+    "/internal/tutor/stream": {
+      "post": {
+        "summary": "Placeholder internal tutor stream endpoint",
+        "description": "gateway-rust -> ai-engine-python tutoring request kickoff."
+      }
+    }
+  },
+  "x-architecture-notes": [
+    "Scenario A: CRUD via sync HTTP through gateway-rust",
+    "Scenario B: internal REST/RPC call from gateway-rust to ai-engine-python",
+    "Scenario C: websocket stream bridged via Redis queue/events",
+    "Scenario D: async fire-and-forget learning-event update to graph pipeline"
+  ]
+}
